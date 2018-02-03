@@ -1,3 +1,4 @@
+/*åŒ…å«äºŒå‰æ ‘çš„æ‰€æœ‰åŸºæœ¬æ“ä½œä»¥åŠæ ‘çš„ä¸‰ç§éå†çš„ä¸¤ç§å®ç°æ–¹æ³•ï¼Œä»¥åŠå±‚åºéå†çš„é˜Ÿåˆ—å®ç°*/
 #include<stdio.h>
 #include<stdlib.h>
 #define Elementtype int
@@ -23,28 +24,28 @@ typedef struct Queue
 	int rear;
 }Queue;
 
-TreeNode *MakeEmpty(TreeNode *pNode);//Çå¿Õ¶ş²æ²éÕÒÊ÷
-TreeNode *Find(TreeNode *pNode, Elementtype x);//²éÕÒÒ»¸öÊı¾İ
-TreeNode *FindMin(TreeNode *pNode);//Ñ°ÕÒ×îĞ¡ÖµµØÖ·
-TreeNode *FindMax(TreeNode *pNode);//Ñ°ÕÒ×î´óÖµµØÖ·
-TreeNode *Insert(TreeNode *pNode, Elementtype x);//²åÈëÊı¾İ
-TreeNode *Delete(TreeNode *pNode, Elementtype x);//É¾³ıÊı¾İ
-void PreOrderTraveral(TreeNode *pNode);//ÏÈĞò±éÀú µİ¹éÊµÏÖ
-void InOrderTraveral(TreeNode *pNode);//ÖĞĞò±éÀú µİ¹éÊµÏÖ
-void PostOrderTraveral(TreeNode *pNode);//ºóĞò±éÀú µİ¹éÊµÏÖ
-void PreOrderTraveral2(TreeNode *pNode);//ÏÈĞò±éÀú ¶ÑÕ»ÊµÏÖ
-void InOrderTraveral2(TreeNode *pNode);//ÖĞĞò±éÀú ¶ÑÕ»ÊµÏÖ
-void PostOrderTraveral2(TreeNode *pNode);//ºóĞò±éÀú ¶ÑÕ»ÊµÏÖ
-void LevelrderTraveral(TreeNode *pNode);//²ãĞò±éÀú ¶ÓÁĞÊµÏÖ
-void Push(Stack *pStr, ValueType x);//Ñ¹Õ»
-ValueType Pop(Stack *pStr);//³öÕ»
-ValueType Top(Stack *pStr);//·µ»ØÕ»¶¥ÔªËØ
-bool IsEmpty(Stack *pStr);//¼ì²âÊÇ·ñÎª¿ÕÕ»
-struct Queue * creatQ();//´´½¨Ò»¸ö¶ÓÁĞ
-bool IsFullQ(struct Queue *pQ);//ÅĞ¶Ï¶ÓÁĞÊÇ·ñÒÑÂú
-void AddQ(struct Queue *pQ, Elementtype x);//Èë¶Ó
-bool IsEmptyQ(struct Queue *pQ);//ÅĞ¶Ï¶ÓÁĞÊÇ·ñÎª¿Õ
-ValueType DeleteQ(struct Queue *pQ);//³ö¶Ó
+TreeNode *MakeEmpty(TreeNode *pNode);//æ¸…ç©ºäºŒå‰æŸ¥æ‰¾æ ‘
+TreeNode *Find(TreeNode *pNode, Elementtype x);//æŸ¥æ‰¾ä¸€ä¸ªæ•°æ®
+TreeNode *FindMin(TreeNode *pNode);//å¯»æ‰¾æœ€å°å€¼åœ°å€
+TreeNode *FindMax(TreeNode *pNode);//å¯»æ‰¾æœ€å¤§å€¼åœ°å€
+TreeNode *Insert(TreeNode *pNode, Elementtype x);//æ’å…¥æ•°æ®
+TreeNode *Delete(TreeNode *pNode, Elementtype x);//åˆ é™¤æ•°æ®
+void PreOrderTraveral(TreeNode *pNode);//å…ˆåºéå† é€’å½’å®ç°
+void InOrderTraveral(TreeNode *pNode);//ä¸­åºéå† é€’å½’å®ç°
+void PostOrderTraveral(TreeNode *pNode);//ååºéå† é€’å½’å®ç°
+void PreOrderTraveral2(TreeNode *pNode);//å…ˆåºéå† å †æ ˆå®ç°
+void InOrderTraveral2(TreeNode *pNode);//ä¸­åºéå† å †æ ˆå®ç°
+void PostOrderTraveral2(TreeNode *pNode);//ååºéå† å †æ ˆå®ç°
+void LevelrderTraveral(TreeNode *pNode);//å±‚åºéå† é˜Ÿåˆ—å®ç°
+void Push(Stack *pStr, ValueType x);//å‹æ ˆ
+ValueType Pop(Stack *pStr);//å‡ºæ ˆ
+ValueType Top(Stack *pStr);//è¿”å›æ ˆé¡¶å…ƒç´ 
+bool IsEmpty(Stack *pStr);//æ£€æµ‹æ˜¯å¦ä¸ºç©ºæ ˆ
+struct Queue * creatQ();//åˆ›å»ºä¸€ä¸ªé˜Ÿåˆ—
+bool IsFullQ(struct Queue *pQ);//åˆ¤æ–­é˜Ÿåˆ—æ˜¯å¦å·²æ»¡
+void AddQ(struct Queue *pQ, Elementtype x);//å…¥é˜Ÿ
+bool IsEmptyQ(struct Queue *pQ);//åˆ¤æ–­é˜Ÿåˆ—æ˜¯å¦ä¸ºç©º
+ValueType DeleteQ(struct Queue *pQ);//å‡ºé˜Ÿ
 
 Stack *stack=(Stack *)malloc(sizeof(stack));
 stack->Top = -1;
@@ -59,38 +60,38 @@ int main()
 	}
 	TreeNode *Min = FindMin(RootNode);
 	TreeNode *Max = FindMax(RootNode);
-	printf("×îĞ¡Öµ%d\n", Min->value);
-	printf("×î´óÖµ%d\n", Max->value);
-	printf("ÏÈĞò±éÀú1\n");
+	printf("æœ€å°å€¼%d\n", Min->value);
+	printf("æœ€å¤§å€¼%d\n", Max->value);
+	printf("å…ˆåºéå†1\n");
 	PreOrderTraveral(RootNode);
 	printf("\n");
-	printf("ÏÈĞò±éÀú2\n");
+	printf("å…ˆåºéå†2\n");
 	PreOrderTraveral2(RootNode);
 	printf("\n");
-	printf("ÖĞĞò±éÀú1\n");
+	printf("ä¸­åºéå†1\n");
 	InOrderTraveral(RootNode);
 	printf("\n");
-	printf("ÖĞĞò±éÀú2\n");
+	printf("ä¸­åºéå†2\n");
 	InOrderTraveral(RootNode);
 	printf("\n");
-	printf("ºóĞò±éÀú1\n");
+	printf("ååºéå†1\n");
 	PostOrderTraveral(RootNode);
 	printf("\n");
-	printf("ºóĞò±éÀú2\n");
+	printf("ååºéå†2\n");
 	PostOrderTraveral(RootNode);
 	printf("\n");
-	printf("²ãĞò±éÀú\n");
+	printf("å±‚åºéå†\n");
 	LevelrderTraveral(RootNode);
 	printf("\n");
 
 }
-//Ñ¹Õ»²Ù×÷
+//å‹æ ˆæ“ä½œ
 void Push(Stack *pStr, ValueType x)
 {
 	pStr->Top++;
 	pStr->Position[pStr->Top] = x;
 }
-//³öÕ»²Ù×÷
+//å‡ºæ ˆæ“ä½œ
 ValueType Pop(Stack *pStr)
 {
 	ValueType temp;
@@ -98,12 +99,12 @@ ValueType Pop(Stack *pStr)
 	pStr->Top--;
 	return temp;
 }
-//Õ¹Ê¾Õ»¶¥
+//å±•ç¤ºæ ˆé¡¶
 ValueType Top(Stack *pStr)
 {
 	return pStr->Position[pStr->Top];
 }
-//¼ì²âÕ»ÊÇ·ñÎª¿Õ
+//æ£€æµ‹æ ˆæ˜¯å¦ä¸ºç©º
 bool IsEmpty(Stack *pStr)
 {
 	if (pStr->Top == -1)
@@ -111,7 +112,7 @@ bool IsEmpty(Stack *pStr)
 	else
 		return false;
 }
-//´´½¨¶ÓÁĞ
+//åˆ›å»ºé˜Ÿåˆ—
 struct Queue * creatQ()
 {
 	struct Queue *pQ = (struct Queue *)malloc(sizeof(struct Queue));
@@ -119,7 +120,7 @@ struct Queue * creatQ()
 	pQ->rear = -1;
 	return pQ;
 }
-//ÅĞ¶Ï¶ÓÁĞÊÇ·ñÂú
+//åˆ¤æ–­é˜Ÿåˆ—æ˜¯å¦æ»¡
 bool IsFullQ(struct Queue *pQ)
 {
 	if ((pQ->rear + 1) % Maxsize == pQ->front)
@@ -127,12 +128,12 @@ bool IsFullQ(struct Queue *pQ)
 	else
 		return false;
 }
-//Èë¶Ó
+//å…¥é˜Ÿ
 void AddQ(struct Queue *pQ, ValueType x)
 {
 	if (IsFullQ(pQ))
 	{
-		printf("¶ÓÁĞÒÑÂú£¡\n");
+		printf("é˜Ÿåˆ—å·²æ»¡ï¼\n");
 		return;
 	}
 	else
@@ -141,7 +142,7 @@ void AddQ(struct Queue *pQ, ValueType x)
 		pQ->value[pQ->rear] = x;
 	}
 }
-//ÅĞ¶Ï¶ÓÁĞÊÇ·ñÎª¿Õ
+//åˆ¤æ–­é˜Ÿåˆ—æ˜¯å¦ä¸ºç©º
 bool IsEmptyQ(struct Queue *pQ)
 {
 	if (pQ->front == pQ->rear)
@@ -149,7 +150,7 @@ bool IsEmptyQ(struct Queue *pQ)
 	else
 		return false;
 }
-//³ö¶Ó
+//å‡ºé˜Ÿ
 ValueType DeleteQ(struct Queue *pQ)
 {
 	ValueType temp;
@@ -157,7 +158,7 @@ ValueType DeleteQ(struct Queue *pQ)
 	pQ->front = (pQ->front + 1) % Maxsize;
 	return temp;
 }
-//½«Ê÷Çå¿Õ
+//å°†æ ‘æ¸…ç©º
 TreeNode *MakeEmpty(TreeNode *pNode)
 {
 	if (pNode != NULL)
@@ -168,7 +169,7 @@ TreeNode *MakeEmpty(TreeNode *pNode)
 	}
 	return NULL;	
 }
-//µİ¹éÊµÏÖ
+//é€’å½’å®ç°
 TreeNode *Find(TreeNode *pNode, Elementtype x)
 {
 	if (!pNode)
@@ -180,7 +181,7 @@ TreeNode *Find(TreeNode *pNode, Elementtype x)
 	else
 		return pNode;
 }
-//Ñ­»·ÊµÏÖ
+//å¾ªç¯å®ç°
 //TreeNode *Find(TreeNode *pNode, Elementtype x)
 //{
 //	while (pNode)
@@ -195,7 +196,7 @@ TreeNode *Find(TreeNode *pNode, Elementtype x)
 //	return NULL;
 //}
 
-//Ñ°ÕÒ×îĞ¡Öµ µİ¹éÊµÏÖ
+//å¯»æ‰¾æœ€å°å€¼ é€’å½’å®ç°
 TreeNode *FindMin(TreeNode *pNode)
 {
 	if (!pNode)
@@ -205,7 +206,7 @@ TreeNode *FindMin(TreeNode *pNode)
 	else
 		return FindMin(pNode->Left);
 }
-//Ñ°ÕÒ×î´óÖµ Ñ­»·ÊµÏÖ
+//å¯»æ‰¾æœ€å¤§å€¼ å¾ªç¯å®ç°
 TreeNode *FindMax(TreeNode *pNode)
 {
 	if (pNode)
@@ -216,7 +217,7 @@ TreeNode *FindMax(TreeNode *pNode)
 	return pNode;
 }
 
-//²åÈëÊı¾İ
+//æ’å…¥æ•°æ®
 TreeNode *Insert(TreeNode *pNode, Elementtype x)
 {
 	if (!pNode)
@@ -237,13 +238,13 @@ TreeNode *Insert(TreeNode *pNode, Elementtype x)
 	}
 	return pNode;
 }
-//É¾³ı½Úµã
+//åˆ é™¤èŠ‚ç‚¹
 TreeNode *Delete(TreeNode *pNode, Elementtype x)
 {
 	TreeNode * pTemp;
 	if (!pNode)
 	{
-		printf("Ê÷Îª¿Õ£¡\n");
+		printf("æ ‘ä¸ºç©ºï¼\n");
 		exit(-1);
 	}
 	if (x > pNode->value)
@@ -270,7 +271,7 @@ TreeNode *Delete(TreeNode *pNode, Elementtype x)
 	}
 	return pNode;
 }
-//ÏÈĞò±éÀú µİ¹éÊµÏÖ
+//å…ˆåºéå† é€’å½’å®ç°
 void PreOrderTraveral(TreeNode *pNode)
 {
 	if (pNode)
@@ -280,7 +281,7 @@ void PreOrderTraveral(TreeNode *pNode)
 		PreOrderTraveral(pNode->Right);
 	}
 }
-//ÖĞĞò±éÀú µİ¹éÊµÏÖ
+//ä¸­åºéå† é€’å½’å®ç°
 void InOrderTraveral(TreeNode *pNode)
 {
 	if(pNode)
@@ -290,7 +291,7 @@ void InOrderTraveral(TreeNode *pNode)
 	InOrderTraveral(pNode->Right);
 	}
 }
-//ºóĞò±éÀú µİ¹éÊµÏÖ
+//ååºéå† é€’å½’å®ç°
 void PostOrderTraveral(TreeNode *pNode)
 {
 	if (pNode)
@@ -300,7 +301,7 @@ void PostOrderTraveral(TreeNode *pNode)
 		printf("%4d", pNode->value);
 	}
 }
-//ÖĞĞò±éÀú ¶ÑÕ»ÊµÏÖ
+//ä¸­åºéå† å †æ ˆå®ç°
 void InOrderTraveral2(TreeNode *pNode)
 {
 	TreeNode *pTemp = pNode;
@@ -319,7 +320,7 @@ void InOrderTraveral2(TreeNode *pNode)
 		}
 	}
 }
-//ÏÈĞòÅÅÁĞ ¶ÑÕ»ÊµÏÖ
+//å…ˆåºæ’åˆ— å †æ ˆå®ç°
 void PreOrderTraveral2(TreeNode *pNode)
 {
 	TreeNode *pTemp = pNode;
@@ -338,7 +339,7 @@ void PreOrderTraveral2(TreeNode *pNode)
 		}
 	}
 }
-//ºóĞòÅÅÁĞ ¶ÑÕ»ÊµÏÖ
+//ååºæ’åˆ— å †æ ˆå®ç°
 void PostOrderTraveral2(TreeNode *pNode)
 {
 	TreeNode *pTemp = pNode;
@@ -357,7 +358,7 @@ void PostOrderTraveral2(TreeNode *pNode)
 		}
 	}
 }
-//²ãĞò±éÀú ¶ÓÁĞÊµÏÖ
+//å±‚åºéå† é˜Ÿåˆ—å®ç°
 void LevelrderTraveral(TreeNode *pNode)
 {
 	Queue *Q;
