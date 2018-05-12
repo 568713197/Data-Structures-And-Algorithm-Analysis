@@ -7,21 +7,21 @@
 #define IsLetter(a)  ((((a)>='a')&&((a)<='z')) || (((a)>='A')&&((a)<='Z')))
 #define LENGTH(a)  (sizeof(a)/sizeof(a[0]))
 
-//ÁÚ½Ó±íÖĞ¶ÔÓ¦Á´±íµÄ¶¥µã
+//é‚»æ¥è¡¨ä¸­å¯¹åº”é“¾è¡¨çš„é¡¶ç‚¹
 typedef struct _ENode
 {
 	int iVex;
 	_ENode * Next_Edge;
 }ENode;
 
-//ÁÚ½Ó±íÖĞ±íµÄ¶¥µã
+//é‚»æ¥è¡¨ä¸­è¡¨çš„é¡¶ç‚¹
 typedef struct _VNode
 {
 	char date;
 	_ENode * First_Edge;
 }VNode;
 
-//ÁÚ½Ó±í
+//é‚»æ¥è¡¨
 typedef struct _Graph
 {
 	int Vexs;
@@ -29,7 +29,7 @@ typedef struct _Graph
 	VNode Vertex[MaxSize];
 }Graph;
 
-//µÃµ½Ä³¸ö½ÚµãµÄÎ»ÖÃ£¬Èô´æÔÚ·µ»Ø½ÚµãÎ»ÖÃ£¬Èô²»´æÔÚ£¬·µ»Ø-1
+//å¾—åˆ°æŸä¸ªèŠ‚ç‚¹çš„ä½ç½®ï¼Œè‹¥å­˜åœ¨è¿”å›èŠ‚ç‚¹ä½ç½®ï¼Œè‹¥ä¸å­˜åœ¨ï¼Œè¿”å›-1
 static int Get_Position(Graph G,char Element)
 {
 	int i;
@@ -39,7 +39,7 @@ static int Get_Position(Graph G,char Element)
 	return -1;
 }
 
-//¶ÁÈëÒ»¸ö×Ö·û
+//è¯»å…¥ä¸€ä¸ªå­—ç¬¦
 static char Read_Char()
 {
 	char ch;
@@ -52,7 +52,7 @@ static char Read_Char()
 	return ch;
 }
 
-//½«nodeÁ¬½Óµ½listµÄÄ©Î²
+//å°†nodeè¿æ¥åˆ°listçš„æœ«å°¾
 static void Link_Last(ENode *const List, ENode *node)
 {
 	ENode *p=List;
@@ -61,7 +61,7 @@ static void Link_Last(ENode *const List, ENode *node)
 	p->Next_Edge = node;
 }
 
-//´´½¨Ò»¸öÍ¼£¨Ê¾Àı£©
+//åˆ›å»ºä¸€ä¸ªå›¾ï¼ˆç¤ºä¾‹ï¼‰
 Graph * Create_Example_Graph()
 {
 	char c1, c2;
@@ -79,41 +79,41 @@ Graph * Create_Example_Graph()
 	int i, p1, p2;
 	ENode *node1, *node2;
 	Graph* pG;
-	//ÎªÍ¼·ÖÅäÄÚ´æ¿Õ¼ä
+	//ä¸ºå›¾åˆ†é…å†…å­˜ç©ºé—´
 	if ((pG = (Graph *)malloc(sizeof(Graph))) == NULL)
 		return NULL;
 	memset(pG, 0, sizeof(Graph));
-	//³õÊ¼»¯±ßÊıºÍ¶¥µãÊı
+	//åˆå§‹åŒ–è¾¹æ•°å’Œé¡¶ç‚¹æ•°
 	pG->Edgs = elen;
 	pG->Vexs = vlen;
-	//³õÊ¼»¯¶¥µã
+	//åˆå§‹åŒ–é¡¶ç‚¹
 	for (i = 0;i < pG->Vexs;i++)
 	{
 		pG->Vertex[i].date = vexs[i];
 		pG->Vertex[i].First_Edge = NULL;
 	}
-	//³õÊ¼»¯±ß
+	//åˆå§‹åŒ–è¾¹
 	for (i = 0;i < pG->Edgs;i++)
 	{
-		//¶ÁÈ¡±ßµÄÆğÊ¼¶¥µãºÍ½áÊø¶¥µã
+		//è¯»å–è¾¹çš„èµ·å§‹é¡¶ç‚¹å’Œç»“æŸé¡¶ç‚¹
 		c1 = edges[i][0];
 		c2 = edges[i][1];
 
 		p1 = Get_Position(*pG, c1);
 		p2 = Get_Position(*pG, c2);
-		//³õÊ¼»¯node1
+		//åˆå§‹åŒ–node1
 		node1 = (ENode*)malloc(sizeof(ENode));
 		node1->iVex = p2;
-		node1->Next_Edge = NULL;				//×¢ÒâÒ»¶¨Òª³õÊ¼»¯ÎªNULL
+		node1->Next_Edge = NULL;				//æ³¨æ„ä¸€å®šè¦åˆå§‹åŒ–ä¸ºNULL
 
 		if (pG->Vertex[p1].First_Edge == NULL)
 			pG->Vertex[p1].First_Edge = node1;
 		else
 			Link_Last(pG->Vertex[p1].First_Edge, node1);
-		//³õÊ¼»¯node2
+		//åˆå§‹åŒ–node2
 		node2 = (ENode*)malloc(sizeof(ENode));
 		node2->iVex = p1;
-		node2->Next_Edge = NULL;				//×¢ÒâÒ»¶¨Òª³õÊ¼»¯ÎªNULL
+		node2->Next_Edge = NULL;				//æ³¨æ„ä¸€å®šè¦åˆå§‹åŒ–ä¸ºNULL
 
 		if (pG->Vertex[p2].First_Edge == NULL)
 			pG->Vertex[p2].First_Edge = node2;
@@ -123,7 +123,7 @@ Graph * Create_Example_Graph()
 	return pG;
 }
 
-//Éî¶ÈÓÅÏÈ±éÀúÍ¼µÄµİ¹éÊµÏÖ
+//æ·±åº¦ä¼˜å…ˆéå†å›¾çš„é€’å½’å®ç°
 static void DFS(Graph G, int i, int *Visited)
 {
 	ENode *node;
@@ -144,13 +144,13 @@ static void DFS(Graph G, int i, int *Visited)
 void DFSTraveling(Graph G)
 {
 	int i;
-	int Visited[MaxSize];						//¶¥µã·ÃÎÊ±ê¼Ç
-	//³õÊ¼»¯·ÃÎÊ±ê¼Ç
+	int Visited[MaxSize];						//é¡¶ç‚¹è®¿é—®æ ‡è®°
+	//åˆå§‹åŒ–è®¿é—®æ ‡è®°
 	for (i = 0;i < G.Vexs;i++)
 	{
 		Visited[i] = 0;
 	}
-	//Éî¶ÈÓÅÏÈ±éÀú
+	//æ·±åº¦ä¼˜å…ˆéå†
 	printf("DFS: ");
 	for (i = 0;i < G.Vexs;i++)
 	{
@@ -169,24 +169,24 @@ void BFSTraveling(Graph G)
 	int Visited[MaxSize];
 	int i, j, k;
 	ENode * node;
-	//³õÊ¼»¯·ÃÎÊ±ê¼Ç
+	//åˆå§‹åŒ–è®¿é—®æ ‡è®°
 	for (i = 0;i < G.Vexs;i++)
 	{
 		Visited[i] = 0;
 	}
 	printf("BFS: ");
-	//¹ã¶ÈÓÅÏÈ±éÀú
+	//å¹¿åº¦ä¼˜å…ˆéå†
 	for (i = 0;i < G.Vexs;i++)
 	{
 		if (Visited[i] == 0)
 		{
 			Visited[i] = 1;
 			printf("%c ", G.Vertex[i].date);
-			Queue[rear++] = i;							//Èë¶ÓÁĞ
+			Queue[rear++] = i;							//å…¥é˜Ÿåˆ—
 		}
 		while (head != rear)
 		{
-			j = Queue[head++];							//³ö¶ÓÁĞ
+			j = Queue[head++];							//å‡ºé˜Ÿåˆ—
 			node = G.Vertex[j].First_Edge;
 			while (node != NULL)
 			{
@@ -195,7 +195,7 @@ void BFSTraveling(Graph G)
 				{
 					Visited[k] = 1;
 					printf("%c ", G.Vertex[k].date);
-					Queue[rear++] = k;					//Èë¶ÓÁĞ
+					Queue[rear++] = k;					//å…¥é˜Ÿåˆ—
 				}
 				node = node->Next_Edge;
 			}
@@ -204,12 +204,12 @@ void BFSTraveling(Graph G)
 	printf("\n");
 }
 
-//´òÓ¡ÁÚ½Ó±í
+//æ‰“å°é‚»æ¥è¡¨
 void Print_Graph(Graph G)
 {
 	int i, j;
 	ENode * node;
-	//¿ªÊ¼´òÓ¡
+	//å¼€å§‹æ‰“å°
 	printf("Graph List:  \n");
 	for (i = 0;i < G.Vexs;i++)
 	{
@@ -227,9 +227,13 @@ void Print_Graph(Graph G)
 int main()
 {
 	Graph * PG;
+	/*åˆ›å»ºä¸€ä¸ªå›¾*/
 	PG=Create_Example_Graph();
+	/*æ‰“å°é‚»æ¥è¡¨*/
 	Print_Graph(*PG);
+	/*æ·±åº¦ä¼˜å…ˆæœç´¢*/
 	DFSTraveling(*PG);
+	/*å¹¿åº¦ä¼˜å…ˆæœç´¢*/
 	BFSTraveling(*PG);
 
 }
